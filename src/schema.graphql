@@ -1,0 +1,30 @@
+type Query {
+  healthz: String!
+  user(id: ID!): User!
+  flights(source: String, destination: String): [Flight!]!
+}
+
+type Mutation {
+  book(flightId: ID!, userId: ID): BookPayload!
+  cancel(flightId: ID!, userId: ID!): BookPayload!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  flights: [Flight!]!
+}
+
+type Flight {
+  id: ID!
+  source: String!
+  destination: String!
+  capacity: Int!
+  passengers: [User!]
+}
+
+type BookPayload {
+  user: User!
+  flight: Flight!
+}

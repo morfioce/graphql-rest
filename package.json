@@ -1,0 +1,28 @@
+{
+  "name": "graphql-gateway-over-rest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e js,graphql --exec babel-node src/index",
+    "start-service-accounts": "nodemon services/accounts/index",
+    "start-service-bookings": "nodemon services/bookings/index",
+    "start-service-flights": "nodemon services/flights/index",
+    "start-services": "concurrently \"npm:start-service-*\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.9.7",
+    "axios": "^0.19.0",
+    "graphql": "^14.5.8",
+    "graphql-import": "^0.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "concurrently": "^5.0.0"
+  }
+}
